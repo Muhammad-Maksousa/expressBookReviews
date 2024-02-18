@@ -12,7 +12,6 @@ public_users.post("/register", (req,res) => {
     return res.status(400).send({ message: "Username and password are required" });
 
   const existingUser = users.filter(user => user.username === username);
-  console.log(existingUser);
   if (existingUser.length>0)
     return res.status(400).send({ message: "Username already exists" });
   

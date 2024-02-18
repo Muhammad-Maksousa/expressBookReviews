@@ -27,7 +27,7 @@ regd_users.post("/login", (req,res) => {
     return res.status(404).json({message: "something is missing"});
   if(authenticatedUser(username,password)){
     let token = jwt.sign({user:username},secret,{expiresIn:60*60});
-    return res.status(200).json({message:token});
+    return res.status(200).json({message:"user logged in ",token : token});
   }else
     return res.status(401).json({message:"Invalid username or password"});
 });
